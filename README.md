@@ -6,8 +6,8 @@ It showcases my work, projects, skills, and journey as a developer passionate ab
 
 🖼️ **Screenshots**
 <img width="1885" height="857" alt="Screenshot 2026-01-06 185756" src="https://github.com/user-attachments/assets/4e490fa2-f370-4201-a7cc-aa31407ea1a2" />
-<img width="1894" height="992" alt="image" src="https://github.com/user-attachments/assets/8a6eeff0-3ebc-446c-a1ac-5f1a02279ac8" />
-<img width="1903" height="1044" alt="Screenshot 2025-11-04 153204" src="https://github.com/user-attachments/assets/355b1c4c-83e6-4465-9081-bff34bb3ad3b" />
+<img width="1887" height="857" alt="Screenshot 2026-01-06 185808" src="https://github.com/user-attachments/assets/afc5ccc5-335e-4ed5-b717-8de04b93e5d0" />
+<img width="1894" height="899" alt="Screenshot 2026-01-06 185827" src="https://github.com/user-attachments/assets/02bcae95-57ff-4c4b-bbcb-b11b6c3c7386" />
 ---
 
 ## 🚀 Features
