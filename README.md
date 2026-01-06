@@ -1,6 +1,6 @@
-# 💻 Kunj Desai — Portfolio Website
+# 💻 Piyush Funde — Portfolio Website
 Welcome to my personal portfolio website built with **React.js**, **Framer Motion**, and **modern UI design** principles.
-It showcases my work, projects, skills, and journey as a developer passionate about **AI, ML, and Web Technologies**.
+It showcases my work, projects, skills, and journey as a developer passionate about **Java ,Backend Developer and Web Technologies**.
 
 🌐 **Website:** [[[kunj-Portfolio]]](https://kunj-desai.vercel.app/)
 
@@ -40,10 +40,10 @@ To run this project locally:
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/kunj2803/kunjdesai-portfolio.git
+git clone git@github.com:piyushFunde/Piyush-Portfolio.git
 
 # 2️⃣ Navigate to project directory
-cd kunjdesai-portfolio
+cd Piyush-Portfolio
 
 # 3️⃣ Install dependencies
 npm install
@@ -60,8 +60,8 @@ Now open [http://localhost:3000](http://localhost:3000) in your browser 🚀
 
 If you’d like to collaborate or just say hi 👋, feel free to reach out!
 
-* 📧 **Email:** [kunjd2803@gmail.com](mailto:kunjd2803@gmail.com)
-* 💼 **LinkedIn:** [linkedin.com/in/kunj-desai-07717b293](https://www.linkedin.com/in/kunj-desai-07717b293/)
+* 📧 **Email:** [fundepiyush18@gmail.com](mailto:fundepiyush18@gmail.com)
+* 💼 **LinkedIn:** [linkedin.com/in/piyush-funde-22411725a/](https://www.linkedin.com/in/piyush-funde-22411725a/)
 
 ---
 
