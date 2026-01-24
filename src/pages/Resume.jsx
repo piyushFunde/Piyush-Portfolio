@@ -108,7 +108,7 @@ export default function Resume() {
             <li>
               <strong>B.Tech — Computer Science Engineering</strong> 
               (MIT ADT University ,Pune), 2022–2026 <br />
-              <span style={{ color: "#aaa" }}>GPA: 7.17</span>
+              <span style={{ color: "#aaa" }}>GPA: 7.37</span>
             </li>
             <li style={{ marginTop: 8 }}>
               <strong>12th Board — S.H Jounior College</strong> (Maharashtra
@@ -229,7 +229,7 @@ export default function Resume() {
           }}
         >
           <iframe
-            src="/Piyush_Resume.pdf"
+            src="/PiyushFunde_Resume.pdf"
             title="Piyush Resume"
             style={{
               width: "100%",
@@ -242,7 +242,7 @@ export default function Resume() {
 
         {/* Download Button */}
         <motion.a
-          href="/Piyush_Resume.pdf"
+          href="/PiyushFunde_Resume.pdf"
           download
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
