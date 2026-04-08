@@ -5,9 +5,9 @@ It showcases my work, projects, skills, and journey as a developer passionate ab
 🌐 **Website:** [[[Piyush-Portfolio]]](https://piyushfunde-portfolio.vercel.app/)
 
 🖼️ **Screenshots**
-<img width="1885" height="857" alt="Screenshot 2026-01-06 185756" src="https://github.com/user-attachments/assets/4e490fa2-f370-4201-a7cc-aa31407ea1a2" />
-<img width="1887" height="857" alt="Screenshot 2026-01-06 185808" src="https://github.com/user-attachments/assets/afc5ccc5-335e-4ed5-b717-8de04b93e5d0" />
-<img width="1894" height="876" alt="Screenshot 2026-01-06 185827" src="https://github.com/user-attachments/assets/672f9b9d-24eb-438f-b696-9b226209cd68" />
+<img width="1890" height="893" alt="image" src="https://github.com/user-attachments/assets/a468fbaf-e8ee-4fc7-86f7-9909f9f430f7" />
+<img width="1892" height="909" alt="image" src="https://github.com/user-attachments/assets/05c98f95-d1d1-4763-b738-47747f885869" />
+<img width="1892" height="914" alt="image" src="https://github.com/user-attachments/assets/110e7fa0-3be0-4888-8f67-2719162ffb99" />
 
 ---
 
