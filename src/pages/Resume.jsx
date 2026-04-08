@@ -111,14 +111,12 @@ export default function Resume() {
               <span style={{ color: "#aaa" }}>GPA: 7.37</span>
             </li>
             <li style={{ marginTop: 8 }}>
-              <strong>12th Board — S.H Jounior College</strong> (Maharashtra
+              <strong>12th Board — S.H. Junior College</strong> (Maharashtra
               Board, 2021) <br />
               <span style={{ color: "#aaa" }}>Percentage: 75%</span>
             </li>
             <li style={{ marginTop: 8 }}>
               <strong>10th Board — P.P.S Purti Public School</strong> (CBSE Board, 2019)
-              <br />
-              <span style={{ color: "#aaa" }}></span>
             </li>
           </ul>
         </motion.div>
