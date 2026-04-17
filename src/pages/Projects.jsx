@@ -47,7 +47,7 @@ const PROJECTS = [
   title: '💼 Portfolio Website',
   desc: 'A modern and responsive portfolio built with React and Framer Motion, showcasing projects, skills, and achievements with smooth animations and interactive UI.',
   ss: '/portfolio.jpg',
-  tech: ['React', 'Framer Motion', 'Tailwind CSS'],
+  tech: ['React', 'Framer Motion', 'Vanilla CSS', 'Vite'],
   live: '#',
   code: 'https://github.com/piyushFunde/Piyush-Portfolio'
   },
@@ -64,14 +64,14 @@ export default function Projects() {
     >
       <div className="card" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 16, padding: 30 }}>
         <motion.h2
-          className="text-4xl font-semibold text-cyan-400 mb-2"
+          style={{ fontSize: '2rem', fontWeight: 600, color: '#00b4ff', marginBottom: '0.5rem' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
         >
           🚀 Projects
         </motion.h2>
-        <p className="text-gray-400 mb-10">
+        <p style={{ color: '#9aa0a6', marginBottom: '2.5rem' }}>
           A collection of my major works — blending research, AI innovation.
         </p>
 

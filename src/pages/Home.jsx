@@ -1,17 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import "../CSS/Home.css"
-import '../index.css' 
-
+import '../index.css'
+import { SOCIAL_LINKS } from '../constants/links'
 
 // 🖼️ Import Assets
 import photo from '../../public/photo.png'
-import githubLogo from '../../public/github.png'
-import linkedinLogo from '../../public/linkedin.png'
-import gmailLogo from '../../public/gmail.png'
-import whatsappLogo from '../../public/whatsapp.png'
-import instagramLogo from '../../public/insta.png'
-import facebookLogo from '../../public/facebook.png'
 
 export default function Home() {
   const professions = [
@@ -22,14 +16,7 @@ export default function Home() {
     'Problem Solver',
   ]
 
-  const quickLinks = [
-    { img: githubLogo, title: 'GitHub', link: 'https://github.com/piyushFunde' },
-    { img: linkedinLogo, title: 'LinkedIn', link: 'https://www.linkedin.com/in/piyush-funde-22411725a/' },
-    { img: gmailLogo, title: 'Email', link: 'mailto:fundepiyush18@gmail.com' },
-    { img: whatsappLogo, title: 'WhatsApp', link: 'https://wa.me/+918459728228' },
-    { img: instagramLogo, title: 'Instagram', link: 'https://www.instagram.com/piyush_funde/' },
-    { img: facebookLogo, title: 'Facebook', link: 'https://www.facebook.com/piyush.funde.3' },
-  ]
+  const quickLinks = SOCIAL_LINKS
 
   return (
     <section className="home-section">

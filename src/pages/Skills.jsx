@@ -30,7 +30,7 @@ const ROWS = [
       title: "Core Concepts",
       items: [
         "Data Structures & Algorithms",
-        "Oobject-Oriented Programming",
+        "Object-Oriented Programming",
         "Machine Learning",
         "Computer Networks",
         "Operating Systems",
@@ -96,9 +96,9 @@ export default function Skills() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-5xl text-cyan-400 font-semibold mb-3">My Skills</h2>
-        <div className="w-28 h-[2px] bg-cyan-400 mx-auto mb-6"></div>
-        <p className="text-gray-400 text-lg max-w-xl mx-auto">
+        <h2 style={{ fontSize: '2.8rem', fontWeight: 600, color: '#00b4ff', marginBottom: '0.75rem' }}>My Skills</h2>
+        <div style={{ width: '7rem', height: '2px', background: '#00b4ff', margin: '0 auto 1.5rem' }}></div>
+        <p style={{ color: '#9aa0a6', fontSize: '1.1rem', maxWidth: '36rem', margin: '0 auto' }}>
           ✨ Technical expertise blended with creativity — explore my core competencies below.
         </p>
       </motion.div>

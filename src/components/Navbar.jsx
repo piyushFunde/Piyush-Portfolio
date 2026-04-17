@@ -69,7 +69,7 @@ export default function Navbar() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <h1 style={{ margin: 0, fontSize: 14 }}>Piyush Funde</h1>
             <div style={{ fontSize: 12, color: "var(--muted)" }}>
-               • Softwere Developer
+               • Software Developer
             </div>
           </div>
         </div>

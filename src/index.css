@@ -1,27 +1,72 @@
 :root{
-  --bg:#050509;
-  --card:#0f1114;
-  --muted:#9aa0a6;
-  --accent:#7c3aed;
-  --accent-2:#070c38;
-  --glass: rgba(255,255,255,0.03);
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --bg: #04040c;
+  --card: #0d0d18;
+  --muted: #8892a4;
+  --accent: #4f8eff;          /* blue */
+  --accent-2: #a855f7;        /* purple */
+  --accent-glow: rgba(79,142,255,0.25);
+  --purple-glow: rgba(168,85,247,0.2);
+  --glass: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.07);
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
 }
 *{box-sizing:border-box}
 html,body,#root{height:100%}
+html { cursor: none; }
 body{
   margin:0;
-  background: radial-gradient(800px 500px at 10% 10%, rgba(124,58,237,0.08), transparent 10%),
-              radial-gradient(700px 400px at 90% 90%, rgba(255,92,161,0.04), transparent 10%),
-              var(--bg);
-  color:#e6eef8;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-  overflow-y:scroll;
+  background-color: var(--bg);
+  background-image:
+    /* dot-grid texture */
+    radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px),
+    /* animated mesh blobs handled via pseudo on .app */
+    radial-gradient(ellipse 900px 600px at 15% 20%, rgba(79,142,255,0.10), transparent 70%),
+    radial-gradient(ellipse 700px 500px at 85% 80%, rgba(168,85,247,0.10), transparent 70%),
+    radial-gradient(ellipse 600px 400px at 50% 50%, rgba(79,142,255,0.04), transparent 70%);
+  background-size: 28px 28px, 100% 100%, 100% 100%, 100% 100%;
+  color: #dde6f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-y: scroll;
 }
-.app{min-height:100vh;display:flex;flex-direction:column}
-.footer{text-align:center;padding:20px;color:var(--muted);font-size:13px}
+.app{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Animated ambient background blobs */
+.app::before, .app::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: blobDrift 18s ease-in-out infinite alternate;
+}
+.app::before {
+  width: 700px; height: 500px;
+  top: -10%; left: -10%;
+  background: radial-gradient(ellipse, rgba(79,142,255,0.12), transparent 70%);
+}
+.app::after {
+  width: 600px; height: 450px;
+  bottom: -10%; right: -10%;
+  background: radial-gradient(ellipse, rgba(168,85,247,0.12), transparent 70%);
+  animation-delay: -9s;
+}
+@keyframes blobDrift {
+  0%   { transform: translate(0,   0)   scale(1);   }
+  33%  { transform: translate(60px, 40px) scale(1.08); }
+  66%  { transform: translate(-40px,60px) scale(0.95); }
+  100% { transform: translate(30px,-30px) scale(1.05); }
+}
+
+/* Ensure page content sits above blobs */
+nav, main, footer { position: relative; z-index: 1; }
 
 /* Navbar */
 .nav{
@@ -43,8 +88,37 @@ body{
 /* container */
 .container{max-width:1200px;margin:28px auto;padding:0 20px}
 
-/* card */
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 40px rgba(2,6,23,0.6)}
+/* card — glassmorphism upgrade */
+.card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+/* ─── Section heading utility ─────────────────────────── */
+.section-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+.section-heading-bar {
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
 
 /* Hero front page */
 .hero-hero{display:flex;gap:28px;align-items:center;padding:36px;min-height:440px}
@@ -219,11 +293,7 @@ form h3 {
   transform: translateY(-2px);
 }
 
-/* Accent variables */
-:root {
-  --accent: #004c99;
-  --accent-2: #0077ff;
-}
+
 
 .certs-grid {
   display: grid;

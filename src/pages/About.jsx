@@ -58,7 +58,7 @@ const AboutMe = () => {
         >
           Hi, I’m <strong>Piyush Funde</strong> — an aspiring{" "}
           <strong>Java Developer</strong> and{" "}
-          <strong>Backend Developer</strong> I build intelligent, 
+          <strong>Backend Developer</strong>. I build intelligent,
           user-centric applications using Python, Java, and modern web technologies.
           Experienced in AI-powered healthcare assistants, 
           REST APIs, and scalable backend systems.
@@ -72,9 +72,9 @@ const AboutMe = () => {
           work efficiently — but also create real value for users.
         </p>
 
-        <p>
-            4th-year B.Tech Computer Science student  with a strong foundation in Data Structures, Algorithms, 
-            and Object-Oriented Programming.
+        <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.75)", marginTop: "0.8rem" }}>
+          4th-year B.Tech Computer Science student with a strong foundation in Data Structures, Algorithms,
+          and Object-Oriented Programming.
         </p>
 
         {/* --- Education Section --- */}
@@ -184,8 +184,7 @@ const AboutMe = () => {
                     marginBottom: "0.2rem",
                   }}
                 >
-                  <strong>S.H.Jounior College</strong> — Khamla
-                  , Nagpur, Maharashtra
+                  <strong>S.H. Junior College</strong> — Khamla, Nagpur, Maharashtra
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
                   Maharashtra Board | Percentage: 75%
@@ -233,7 +232,7 @@ const AboutMe = () => {
                   Gondia , Maharashtra
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  CBSE Board |
+                  CBSE Board
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>Completed in 2019</p>
               </div>
