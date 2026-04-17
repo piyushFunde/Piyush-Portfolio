@@ -4,20 +4,28 @@ import { Github, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
   {
-    title: '🐞 BugFix AI',
-    desc: 'AI-powered bug analysis and fix suggestion system that automatically analyzes bug reports from issue trackers, understands error context, and generates intelligent code-fix recommendations for developers. The system improves debugging speed, reduces manual effort, and enhances development productivity through automated AI-assisted debugging.',
-    ss: '/BugFixAI.png',
-    tech: ['Java', 'Spring Boot', 'REST API', 'AI/LLM', 'Jira Webhooks', 'PostgreSQL', 'Maven'],
-    live: 'https://bugfix-ai-backend-odli.onrender.com/',
-    code: 'https://github.com/piyushFunde/BugFix-Ai'
-  },
-  {
     title: '🩺 Bedside Bot',
     desc: 'AI-powered hospital assistant designed to help bedridden patients using real-time gesture recognition, voice commands, and emotion detection. The system reduces patient wait time by enabling hands-free interaction with hospital services through an intelligent and responsive interface.',
     ss: '/BedsideBot.png',
     tech: ['Python', 'Flask', 'OpenCV', 'Mediapipe', 'DeepFace', 'SpeechRecognition'],
     live: '#',
     code: 'https://github.com/piyushFunde/Bedsidebot_app'
+  },
+  {
+    title: '⚙️ Visual Pipeline Engine',
+    desc: 'Drag-and-drop pipeline builder that allows users to create, validate, and execute Directed Acyclic Graph (DAG)-based workflows. The system supports multiple node types like API, Database, LLM, and Condition nodes, with real-time validation, persistence, and simulated execution to streamline workflow automation',
+    ss: '/VisualPipelineEngine.png',
+    tech: ['React', 'React Flow', 'Zustand', 'Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'Maven'],
+    live: '#',
+    code: 'https://github.com/piyushFunde/Visual-Pipeline-Engine'
+  },
+  {
+    title: '🐞 BugFix AI',
+    desc: 'AI-powered bug analysis and fix suggestion system that automatically analyzes bug reports from issue trackers, understands error context, and generates intelligent code-fix recommendations for developers. The system improves debugging speed, reduces manual effort, and enhances development productivity through automated AI-assisted debugging.',
+    ss: '/BugFixAI.png',
+    tech: ['Java', 'Spring Boot', 'REST API', 'AI/LLM', 'Jira Webhooks', 'PostgreSQL', 'Maven'],
+    live: 'https://bugfix-ai-backend-odli.onrender.com/',
+    code: 'https://github.com/piyushFunde/BugFix-Ai'
   },
   {
   title: '💰 Expense Tracker',

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
@@ -12,7 +12,25 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import SkillNetwork from './pages/Skills'  
 
+const pageTitles = {
+  '/': 'Piyush Funde | Home',
+  '/projects': 'Piyush Funde | Projects',
+  '/gallery': 'Piyush Funde | Gallery',
+  '/skills': 'Piyush Funde | Skills',
+  '/certificates': 'Piyush Funde | Certificates',
+  '/blog': 'Piyush Funde | Blog',
+  '/resume': 'Piyush Funde | Resume',
+  '/about': 'Piyush Funde | About',
+  '/contact': 'Piyush Funde | Contact',
+}
+
 export default function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    document.title = pageTitles[location.pathname] ?? 'Piyush Funde | Portfolio'
+  }, [location.pathname])
+
   return (
     <div className="app">
       <Navbar />
