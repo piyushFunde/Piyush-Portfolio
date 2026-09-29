@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
+import { portfolioApi } from '../api'
 
-const PROJECTS = [
+const STATIC_PROJECTS = [
   {
     title: '🩺 Bedside Bot',
     desc: 'AI-powered hospital assistant designed to help bedridden patients using real-time gesture recognition, voice commands, and emotion detection. The system reduces patient wait time by enabling hands-free interaction with hospital services through an intelligent and responsive interface.',
@@ -54,6 +55,30 @@ const PROJECTS = [
 ]
 
 export default function Projects() {
+  const [projectsList, setProjectsList] = useState(STATIC_PROJECTS)
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const data = await portfolioApi.getProjects(false, STATIC_PROJECTS)
+        if (data && data.length > 0) {
+          // Normalize if backend returned screenshotUrl/codeUrl/description
+          const normalized = data.map(p => ({
+            title: p.title,
+            desc: p.description || p.desc,
+            ss: p.screenshotUrl || p.ss || '/portfolio.jpg',
+            tech: Array.isArray(p.tech) ? p.tech : (typeof p.tech === 'string' ? p.tech.split(',') : []),
+            live: p.liveUrl || p.live || '#',
+            code: p.codeUrl || p.code || '#'
+          }))
+          setProjectsList(normalized)
+        }
+      } catch (e) {
+        // static fallback
+      }
+    }
+    fetchProjects()
+  }, [])
   return (
     <motion.section
       className="container"
@@ -76,7 +101,7 @@ export default function Projects() {
         </p>
 
         <div className="projects-grid" style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
-          {PROJECTS.map((p, idx) => (
+          {projectsList.map((p, idx) => (
             <motion.div
               key={idx}
               className="project-card"

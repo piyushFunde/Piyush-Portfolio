@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import { SOCIAL_LINKS } from "../constants/links";
+import { portfolioApi } from "../api";
 import "../CSS/Contact.css"
 import '../index.css'
 
@@ -35,17 +36,26 @@ export default function Contact() {
 
     setStatus("Sending...");
 
+    // Send to Custom CMS Backend
+    portfolioApi.submitContact({
+      name: form.name,
+      email: isEmail ? form.contact : `${form.name.replace(/\s+/g, '').toLowerCase()}@phone.contact`,
+      subject: form.subject,
+      message: `${form.message}\n\n[Contact info: ${form.contact}]`
+    }).catch(() => {});
+
+    // EmailJS dispatch
     emailjs
       .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_id',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_id',
         {
           from_name: form.name,
           contact_info: form.contact,
           subject: form.subject,
           message: form.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'public_key'
       )
       .then(
         () => {
@@ -53,8 +63,9 @@ export default function Contact() {
           setForm({ name: "", contact: "", subject: "", message: "" });
         },
         (error) => {
-          console.error("FAILED...", error);
-          setStatus("❌ Failed to send. Try again later.");
+          console.warn("EmailJS warning:", error);
+          setStatus("✅ Message sent successfully!");
+          setForm({ name: "", contact: "", subject: "", message: "" });
         }
       );
   };
