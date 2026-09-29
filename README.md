@@ -1,82 +1,147 @@
-#  Piyush Funde — Portfolio Website
-Welcome to my personal portfolio website built with **React.js**, **Framer Motion**, and **modern UI design** principles.
-It showcases my work, projects, skills, and journey as a developer passionate about **Java ,Backend Developer and Web Technologies**.
+# 🚀 Piyush Funde — Full-Stack Portfolio & Custom CMS
 
- **Website:** [[[Piyush-Portfolio]]](https://piyushfunde-portfolio.vercel.app/)
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg?logo=react)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4-purple.svg?logo=vite)](https://vitejs.dev/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-brightgreen.svg?logo=springboot)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-17%2F21-orange.svg?logo=openjdk)](https://www.oracle.com/java/)
+[![JWT](https://img.shields.io/badge/Auth-JWT%20Stateless-red.svg)](https://jwt.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
- **Screenshots**
-<img width="1890" height="893" alt="image" src="https://github.com/user-attachments/assets/a468fbaf-e8ee-4fc7-86f7-9909f9f430f7" />
-<img width="1892" height="909" alt="image" src="https://github.com/user-attachments/assets/05c98f95-d1d1-4763-b738-47747f885869" />
-<img width="1892" height="914" alt="image" src="https://github.com/user-attachments/assets/110e7fa0-3be0-4888-8f67-2719162ffb99" />
+A modern, high-performance personal portfolio connected to a **custom-built Java Spring Boot 3.x Headless CMS** and an **interactive Admin Control Dashboard**.
 
----
-
-##  Features
-
-**Modern UI/UX** with black-based aesthetic theme
-**Smooth **Framer Motion** animations
-**Projects, Resume, and Contact sections**
-**Tech-focused portfolio highlighting AI/ML projects
-**Functional contact form powered by **EmailJS**
-**Responsive design for all screen sizes
+🌐 **Live Website:** [https://piyushfunde-portfolio.vercel.app/](https://piyushfunde-portfolio.vercel.app/)
 
 ---
 
-##  Tech Stack
+## 🏗️ System Architecture
 
-| Category            | Tools / Libraries                        |
-| ------------------- | ---------------------------------------- |
-| **Frontend**        | React.js, HTML5, CSS3, JavaScript (ES6+) |
-| **Styling**         | Tailwind CSS / Custom CSS                |
-| **Animation**       | Framer Motion                            |
-| **Contact Form**    | EmailJS                                  |
-| **Version Control** | Git & GitHub                             |
-| **Deployment**      | Vercel / Netlify                         |
+This project is engineered with a **fully decoupled full-stack architecture**:
 
----
+```mermaid
+graph TD
+    subgraph Client Layer
+        PF[Portfolio Frontend<br/>React + Vite + Framer Motion<br/>Port 5173]
+        AP[Admin CMS Dashboard<br/>React + Glassmorphic UI<br/>Port 5174]
+    end
 
-##  Setup Instructions
+    subgraph Backend & CMS Engine
+        API[Spring Boot 3.x REST API<br/>Port 8080]
+        SEC[Spring Security + JWT Bearer Auth]
+        JPA[Spring Data JPA Layer]
+        FS[Multipart Media Storage Engine]
+    end
 
-To run this project locally:
+    subgraph Persistence Layer
+        DB[(PostgreSQL / H2 Database)]
+    end
 
-```bash
-#  Clone the repository
-git clone git@github.com:piyushFunde/Piyush-Portfolio.git
-
-# Navigate to project directory
-cd Piyush-Portfolio
-
-#  Install dependencies
-npm install
-
-#  Run development server
-npm start or npm run dev
+    PF -->|GET /api/v1/public/* (Dynamic Content)| API
+    PF -->|POST /api/v1/public/contact| API
+    AP -->|JWT Bearer Auth / CRUD Operations| SEC
+    SEC --> API
+    API --> JPA
+    JPA --> DB
+    API --> FS
 ```
 
-Now open [http://localhost:3000](http://localhost:3000) in your browser 
+---
+
+## ✨ Key Features & Upgrades
+
+### 🎨 1. Dynamic Portfolio Frontend
+- **Decoupled API Integration**: Dynamically loads projects, skills, timeline, certifications, and blogs via `src/api.js` with zero-downtime offline fallback.
+- **Modern Dark Aesthetics**: 28px dot-grid texture, ambient drifting mesh gradient blobs, and glassmorphic cards with subtle inset highlights.
+- **Smooth Micro-Interactions**: Framer Motion entrance animations, floating social badges, and interactive project showcases.
+- **Dual-Channel Contact System**: Contact form submissions are dispatched via **EmailJS** and persistently logged into the CMS database.
+
+### ☕ 2. Custom Spring Boot 3.x CMS Backend
+- **100% Custom Headless CMS**: Complete ownership of database schemas, ORM logic, and content delivery without third-party vendor lock-in.
+- **Spring Security & JWT**: Stateless token authentication (`HMAC-SHA256`) protecting administrative endpoints.
+- **Relational Persistence**: Spring Data JPA entities for `Projects`, `Skills`, `Experience`, `Certificates`, `Blogs`, `MediaFiles`, and `ContactMessages`.
+- **Media Upload Service**: Native multipart file storage for screenshots and credential badges.
+
+### ⚡ 3. CMS Admin Control Center
+- **Dedicated Dashboard**: Real-time content metrics, server health status, and quick-action toolbars.
+- **Visual Content Managers**: Complete CRUD management interfaces for Projects, Skills, Timeline, Certifications, and Blog articles.
+- **Interactive Inbox**: Real-time incoming contact form messages with read/unread flags and message management.
 
 ---
 
-## Contact
+## 🛠️ Technology Stack
 
-If you’d like to collaborate or just say hi , feel free to reach out!
-
-**Email:** [fundepiyush18@gmail.com](mailto:fundepiyush18@gmail.com)
-**LinkedIn:** [linkedin.com/in/piyush-funde-22411725a/](https://www.linkedin.com/in/piyush-funde-22411725a/)
-
----
-
-## Deployment
-
-Deployed seamlessly on **Vercel** for continuous integration and fast CDN delivery.
-Every push to the `main` branch triggers an automatic rebuild and deployment.
+| Tier | Technologies |
+| :--- | :--- |
+| **Portfolio Frontend** | React 18, Vite, Framer Motion, Lucide Icons, Vanilla CSS |
+| **Admin CMS Panel** | React 18, Vite, Lucide React, Glassmorphic Theme |
+| **Backend CMS** | Java 17, Spring Boot 3.2.5, Spring Data JPA, Spring Security |
+| **Security** | JJWT (io.jsonwebtoken), BCrypt Password Hashing |
+| **Database** | PostgreSQL / H2 Database Engine |
+| **Email Service** | EmailJS & Spring Mail Notification Service |
 
 ---
 
-### 🏁 License
+## 📡 REST API Specifications
 
-This project is open source and available under the [MIT License](LICENSE).
-Feel free to fork, use, and build upon it 
+### Public Endpoints
+- `GET /api/v1/public/about` — Fetch bio, profile details, and social links
+- `GET /api/v1/public/projects` — List all projects (`?featured=true` for highlighted work)
+- `GET /api/v1/public/skills` — Retrieve categorized skills with proficiency levels
+- `GET /api/v1/public/experience` — Career and internship timeline
+- `GET /api/v1/public/certificates` — Professional badges and verified credentials
+- `GET /api/v1/public/blogs` — Published engineering articles and dev notes
+- `POST /api/v1/public/contact` — Submit contact form inquiry
+
+### Admin CMS Endpoints (Protected by JWT)
+- `POST /api/v1/auth/login` — Authenticate admin user
+- `GET /api/v1/admin/stats` — Retrieve CMS dashboard analytics
+- `POST / PUT / DELETE /api/v1/admin/projects` — Manage portfolio projects
+- `POST / PUT / DELETE /api/v1/admin/skills` — Manage technical skill sets
+- `POST /api/v1/admin/media/upload` — Upload multipart image files
+- `GET /api/v1/admin/messages` — Inbox for contact submissions
+
 ---
 
-> *“Showcasing my work and passion through technology ”*
+## 🚀 Local Development Setup
+
+### 1. Run the Portfolio Frontend
+```bash
+cd piyush-portfolio
+npm install
+npm run dev
+```
+Portfolio runs at: `http://localhost:5173/`
+
+### 2. Run the Custom CMS Admin Panel
+```bash
+cd admin-cms-frontend
+npm install
+npm run dev
+```
+Admin Dashboard runs at: `http://localhost:5174/`  
+*Default Dev Credentials:* `admin` / `admin123`
+
+### 3. Run the Spring Boot CMS Backend
+```bash
+cd backend-cms
+# Run with your favorite Java IDE or Maven
+mvn spring-boot:run
+```
+Backend API runs at: `http://localhost:8080/api/v1`  
+H2 Database Console: `http://localhost:8080/h2-console`
+
+---
+
+## 📬 Contact & Connect
+
+- **Portfolio:** [piyushfunde-portfolio.vercel.app](https://piyushfunde-portfolio.vercel.app/)
+- **Email:** [fundepiyush18@gmail.com](mailto:fundepiyush18@gmail.com)
+- **LinkedIn:** [linkedin.com/in/piyush-funde-22411725a](https://www.linkedin.com/in/piyush-funde-22411725a/)
+- **GitHub:** [github.com/piyushFunde](https://github.com/piyushFunde)
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — feel free to fork, customize, and build upon it!
+
+> *"Crafting resilient distributed systems, intelligent workflows, and modern web experiences."*
