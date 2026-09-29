@@ -20,24 +20,24 @@ This project is engineered with a **fully decoupled full-stack architecture**:
 ```mermaid
 graph TD
     subgraph Client Layer
-        PF[Portfolio Frontend<br/>React + Vite + Framer Motion<br/>Port 5173]
-        AP[Admin CMS Dashboard<br/>React + Glassmorphic UI<br/>Port 5174]
+        PF["Portfolio Frontend<br/>React + Vite + Framer Motion<br/>Port 5173"]
+        AP["Admin CMS Dashboard<br/>React + Glassmorphic UI<br/>Port 5174"]
     end
 
     subgraph Backend & CMS Engine
-        API[Spring Boot 3.x REST API<br/>Port 8080]
-        SEC[Spring Security + JWT Bearer Auth]
-        JPA[Spring Data JPA Layer]
-        FS[Multipart Media Storage Engine]
+        API["Spring Boot 3.x REST API<br/>Port 8080"]
+        SEC["Spring Security + JWT Bearer Auth"]
+        JPA["Spring Data JPA Layer"]
+        FS["Multipart Media Storage Engine"]
     end
 
     subgraph Persistence Layer
-        DB[(PostgreSQL / H2 Database)]
+        DB[("PostgreSQL / H2 Database")]
     end
 
-    PF -->|GET /api/v1/public/* (Dynamic Content)| API
-    PF -->|POST /api/v1/public/contact| API
-    AP -->|JWT Bearer Auth / CRUD Operations| SEC
+    PF -->|"GET /api/v1/public (Dynamic Content)"| API
+    PF -->|"POST /api/v1/public/contact"| API
+    AP -->|"JWT Bearer Auth / CRUD Operations"| SEC
     SEC --> API
     API --> JPA
     JPA --> DB
