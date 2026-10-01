@@ -1,44 +1,68 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
+import { portfolioApi } from "../api";
 import "./blog.css";
 
-export default function Blog() {
-  const defaultPosts = [
-    {
-      id: 1,
-      title: "1️⃣ Why Computer Science Became My Career Path",
-      text: "I chose Computer Science Engineering because it allows me to turn ideas into real, impactful solutions. From writing my first program to building full-scale applications and AI-based systems, CSE gives me the freedom to create, innovate, and continuously learn.",
-    },
-    {
-      id: 2,
-      title: "2️⃣ Learning Through Projects, Not Just Theory",
-      text: "I believe design should be a balance between functionality and emotion. Dark themes with minimalist layouts always inspire me to create something that feels personal and futuristic.",
-    },
-    {
-      id: 3,
-      title: "3️⃣ Balancing Tech and Creativity",
-      text: "For me, creativity doesn’t stop at design—it extends into problem-solving and system architecture. Whether it’s structuring clean code or designing intuitive user interactions, I enjoy blending technical precision with creative thinking in every project I build.",
-    },
-    {
-      id: 4,
-      title: "4️⃣The Beauty of Simple Code",
-      text: "Clean code isn’t just about fewer lines — it’s about clarity. Elegance in code feels like poetry to me — each function should have rhythm and purpose.",
-    },
-  ];
+const DEFAULT_POSTS = [
+  {
+    id: 1,
+    title: "1️⃣ Why Computer Science Became My Career Path",
+    text: "I chose Computer Science Engineering because it allows me to turn ideas into real, impactful solutions. From writing my first program to building full-scale applications and AI-based systems, CSE gives me the freedom to create, innovate, and continuously learn.",
+  },
+  {
+    id: 2,
+    title: "2️⃣ Learning Through Projects, Not Just Theory",
+    text: "I believe design should be a balance between functionality and emotion. Dark themes with minimalist layouts always inspire me to create something that feels personal and futuristic.",
+  },
+  {
+    id: 3,
+    title: "3️⃣ Balancing Tech and Creativity",
+    text: "For me, creativity doesn’t stop at design—it extends into problem-solving and system architecture. Whether it’s structuring clean code or designing intuitive user interactions, I enjoy blending technical precision with creative thinking in every project I build.",
+  },
+  {
+    id: 4,
+    title: "4️⃣The Beauty of Simple Code",
+    text: "Clean code isn’t just about fewer lines — it’s about clarity. Elegance in code feels like poetry to me — each function should have rhythm and purpose.",
+  },
+];
 
+export default function Blog() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const savedVotes = JSON.parse(localStorage.getItem("kd_blog_votes") || "{}");
-    const votedByUser = JSON.parse(localStorage.getItem("kd_blog_voted") || "{}");
-    const withVotes = defaultPosts.map((p) => ({
-      ...p,
-      agree: savedVotes[p.id]?.agree || 0,
-      disagree: savedVotes[p.id]?.disagree || 0,
-      userVote: votedByUser[p.id] || null,
-    }));
-    setPosts(withVotes);
+    async function loadBlogs() {
+      const savedVotes = JSON.parse(localStorage.getItem("kd_blog_votes") || "{}");
+      const votedByUser = JSON.parse(localStorage.getItem("kd_blog_voted") || "{}");
+
+      try {
+        const liveBlogs = await portfolioApi.getBlogs(DEFAULT_POSTS);
+        const sourceData = (liveBlogs && liveBlogs.length > 0)
+          ? liveBlogs.map((b, i) => ({
+              id: b.id || i + 1,
+              title: b.title,
+              text: b.content || b.excerpt || b.text
+            }))
+          : DEFAULT_POSTS;
+
+        const withVotes = sourceData.map((p) => ({
+          ...p,
+          agree: savedVotes[p.id]?.agree || 0,
+          disagree: savedVotes[p.id]?.disagree || 0,
+          userVote: votedByUser[p.id] || null,
+        }));
+        setPosts(withVotes);
+      } catch (e) {
+        const withVotes = DEFAULT_POSTS.map((p) => ({
+          ...p,
+          agree: savedVotes[p.id]?.agree || 0,
+          disagree: savedVotes[p.id]?.disagree || 0,
+          userVote: votedByUser[p.id] || null,
+        }));
+        setPosts(withVotes);
+      }
+    }
+    loadBlogs();
   }, []);
 
   function vote(id, type) {
