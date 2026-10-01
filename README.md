@@ -55,15 +55,14 @@ graph TD
 - **Dual-Channel Contact System**: Contact form submissions are dispatched via **EmailJS** and persistently logged into the CMS database.
 
 ### ☕ 2. Custom Spring Boot 3.x CMS Backend
-- **100% Custom Headless CMS**: Complete ownership of database schemas, ORM logic, and content delivery without third-party vendor lock-in.
-- **Spring Security & JWT**: Stateless token authentication (`HMAC-SHA256`) protecting administrative endpoints.
-- **Relational Persistence**: Spring Data JPA entities for `Projects`, `Skills`, `Experience`, `Certificates`, `Blogs`, `MediaFiles`, and `ContactMessages`.
-- **Media Upload Service**: Native multipart file storage for screenshots and credential badges.
+- **100% Custom-Coded Headless CMS**: Built from scratch without third-party CMS platforms (Strapi, Sanity, Contentful), providing full schema control and native data ownership.
+- **Spring Security & Rate Limiting**: Stateless token authentication (`HMAC-SHA256`) with brute-force rate limiting and 15-minute lockout protection on auth endpoints.
+- **Relational Persistence**: PostgreSQL for production deployments (with connection pooling) and H2 in-memory mode for isolated unit testing.
+- **Media Upload Service**: Native multipart file storage with Cloudinary/S3 integration support to prevent ephemeral disk loss.
 
 ### ⚡ 3. CMS Admin Control Center
-- **Dedicated Dashboard**: Real-time content metrics, server health status, and quick-action toolbars.
-- **Visual Content Managers**: Complete CRUD management interfaces for Projects, Skills, Timeline, Certifications, and Blog articles.
-- **Interactive Inbox**: Real-time incoming contact form messages with read/unread flags and message management.
+- **Dedicated Dashboard**: Real-time content metrics, dynamic `/health` engine checks, and rapid publishing shortcuts.
+- **Practical Admin Utilities**: Live inquiries inbox with read/unread flags, pending drafts manager, and visual CRUD tables.
 
 ---
 
