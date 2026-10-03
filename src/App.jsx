@@ -10,6 +10,7 @@ import Blog from './pages/Blog'
 import Resume from './pages/Resume'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Experience from './pages/Experience'
 import NotFound from './pages/NotFound'
 import SkillNetwork from './pages/Skills'
 import { Shield, Sparkles } from 'lucide-react'
@@ -19,6 +20,7 @@ const CMS_ADMIN_URL = import.meta.env.VITE_ADMIN_URL || 'http://localhost:5174'
 const pageTitles = {
   '/': 'Piyush Funde | Home',
   '/projects': 'Piyush Funde | Projects',
+  '/experience': 'Piyush Funde | Experience',
   '/gallery': 'Piyush Funde | Gallery',
   '/skills': 'Piyush Funde | Skills',
   '/certificates': 'Piyush Funde | Certificates',
@@ -68,6 +70,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/experience" element={<Experience />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/skills" element={<SkillNetwork />} />
           <Route path="/certificates" element={<Certificates />} />

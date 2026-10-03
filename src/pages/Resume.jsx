@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { portfolioApi } from "../api";
+import { FileText, Download, ExternalLink } from "lucide-react";
 
 export default function Resume() {
+  const [resumeUrl, setResumeUrl] = useState("/PiyushFunde_Resume.pdf");
+
+  useEffect(() => {
+    async function loadResume() {
+      try {
+        const aboutData = await portfolioApi.getAbout();
+        if (aboutData?.resumeUrl && aboutData.resumeUrl !== '#' && aboutData.resumeUrl.trim() !== '') {
+          setResumeUrl(aboutData.resumeUrl);
+        }
+      } catch {}
+    }
+    loadResume();
+  }, []);
   return (
     <section className="container" style={{ padding: "60px 0" }}>
       <motion.div
@@ -121,6 +136,50 @@ export default function Resume() {
           </ul>
         </motion.div>
 
+        {/* Experience Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          style={{
+            marginTop: 40,
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: 12,
+            padding: "20px 24px",
+            background: "rgba(255,255,255,0.03)",
+          }}
+        >
+          <h4 style={{ fontSize: 20, color: "#00b4ff", marginBottom: 12 }}>
+            💼 Experience
+          </h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
+                <strong style={{ color: "#fff", fontSize: 16 }}>Full Stack Developer Intern — Labmentix</strong>
+                <span style={{ color: "var(--accent)", fontSize: 13, fontWeight: 500 }}>June 2026 – Present</span>
+              </div>
+              <ul style={{ color: "#aaa", fontSize: 14, margin: "6px 0 0 20px", lineHeight: 1.6 }}>
+                <li>Working on full-stack web applications using Java, Spring Boot, React, REST APIs, and MySQL.</li>
+                <li>Developing backend APIs, integrating databases, and implementing application features.</li>
+                <li>Working with Git, debugging, testing, and improving application functionality.</li>
+              </ul>
+            </div>
+
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 14 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
+                <strong style={{ color: "#fff", fontSize: 16 }}>Freelance Full Stack Developer — EVA Groups</strong>
+                <span style={{ color: "var(--accent)", fontSize: 13, fontWeight: 500 }}>March 2026 – June 2026</span>
+              </div>
+              <ul style={{ color: "#aaa", fontSize: 14, margin: "6px 0 0 20px", lineHeight: 1.6 }}>
+                <li>Built EVA CRM, a collection management system used by real users.</li>
+                <li>Developed the application end-to-end using React, Spring Boot, MySQL, JWT, and REST APIs.</li>
+                <li>Implemented customer assignment, collection tracking, receipt uploads, Excel data import, and role-based access.</li>
+                <li>Added offline support and real-time synchronization using WebSockets.</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Projects */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -227,7 +286,7 @@ export default function Resume() {
           }}
         >
           <iframe
-            src="/PiyushFunde_Resume.pdf"
+            src={resumeUrl}
             title="Piyush Resume"
             style={{
               width: "100%",
@@ -238,26 +297,51 @@ export default function Resume() {
           />
         </motion.div>
 
-        {/* Download Button */}
-        <motion.a
-          href="/PiyushFunde_Resume.pdf"
-          download
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            display: "inline-block",
-            marginTop: 20,
-            background: "#00b4ff",
-            color: "#fff",
-            padding: "10px 22px",
-            borderRadius: 8,
-            textDecoration: "none",
-            fontWeight: 500,
-            letterSpacing: 0.3,
-          }}
-        >
-          ⬇️ Download Resume
-        </motion.a>
+        {/* Action Buttons */}
+        <div style={{ display: "flex", gap: 14, marginTop: 20, flexWrap: "wrap" }}>
+          <motion.a
+            href={resumeUrl}
+            download="PiyushFunde_Resume.pdf"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "#00b4ff",
+              color: "#fff",
+              padding: "10px 22px",
+              borderRadius: 8,
+              textDecoration: "none",
+              fontWeight: 500,
+              letterSpacing: 0.3,
+            }}
+          >
+            <Download size={16} /> Download Resume
+          </motion.a>
+
+          <motion.a
+            href={resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              color: "#fff",
+              padding: "10px 20px",
+              borderRadius: 8,
+              textDecoration: "none",
+              fontWeight: 500,
+            }}
+          >
+            <ExternalLink size={15} /> Open in Full Tab
+          </motion.a>
+        </div>
 
 
       </motion.div>

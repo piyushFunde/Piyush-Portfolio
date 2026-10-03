@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaUniversity, FaSchool, FaGraduationCap } from "react-icons/fa";
+import { portfolioApi } from "../api";
+
+const defaultBio = {
+  fullName: "Piyush Funde",
+  title: "Java Developer and Backend Developer",
+  bioParagraph1: "Hi, I’m Piyush Funde — an aspiring Java Developer and Backend Developer. I build intelligent, user-centric applications using Python, Java, and modern web technologies. Experienced in AI-powered healthcare assistants, REST APIs, and scalable backend systems.",
+  bioParagraph2: "Beyond code, I enjoy understanding system design, improving application performance, and exploring how intelligent systems can solve real-world problems. I combine practical problem-solving with technical precision to build solutions that not only work efficiently — but also create real value for users.",
+  bioParagraph3: "4th-year B.Tech Computer Science student at MIT ADT University, Pune, with a strong foundation in Data Structures, Algorithms, and Object-Oriented Programming."
+};
 
 const AboutMe = () => {
+  const [about, setAbout] = useState(defaultBio);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const data = await portfolioApi.getAbout();
+        if (data && (data.bioParagraph1 || data.bio)) {
+          setAbout({
+            fullName: data.fullName || defaultBio.fullName,
+            title: data.title || defaultBio.title,
+            bioParagraph1: data.bioParagraph1 || data.bio || defaultBio.bioParagraph1,
+            bioParagraph2: data.bioParagraph2 || defaultBio.bioParagraph2,
+            bioParagraph3: data.bioParagraph3 || defaultBio.bioParagraph3
+          });
+        }
+      } catch {}
+    }
+    loadData();
+  }, []);
   return (
     <div
       style={{
@@ -54,28 +82,40 @@ const AboutMe = () => {
             fontSize: "1.1rem",
             color: "rgba(255,255,255,0.85)",
             marginBottom: "1rem",
+            lineHeight: 1.8,
+            whiteSpace: "pre-line"
           }}
         >
-          Hi, I’m <strong>Piyush Funde</strong> — an aspiring{" "}
-          <strong>Java Developer</strong> and{" "}
-          <strong>Backend Developer</strong>. I build intelligent,
-          user-centric applications using Python, Java, and modern web technologies.
-          Experienced in AI-powered healthcare assistants, 
-          REST APIs, and scalable backend systems.
+          {about.bioParagraph1}
         </p>
 
-        <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)" }}>
-          Beyond code, I enjoy understanding system design, improving application performance,
-          and exploring how intelligent systems can solve real-world problems.{" "}
-          <strong>practical problem-solving</strong> with{" "}
-          <strong>technical precision</strong>.  My goal is to build solutions that not only
-          work efficiently — but also create real value for users.
-        </p>
+        {about.bioParagraph2 && (
+          <p
+            style={{
+              fontSize: "1.1rem",
+              color: "rgba(255,255,255,0.8)",
+              marginBottom: "1rem",
+              lineHeight: 1.8,
+              whiteSpace: "pre-line"
+            }}
+          >
+            {about.bioParagraph2}
+          </p>
+        )}
 
-        <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.75)", marginTop: "0.8rem" }}>
-          4th-year B.Tech Computer Science student with a strong foundation in Data Structures, Algorithms,
-          and Object-Oriented Programming.
-        </p>
+        {about.bioParagraph3 && (
+          <p
+            style={{
+              fontSize: "1.05rem",
+              color: "rgba(255,255,255,0.75)",
+              marginTop: "0.8rem",
+              lineHeight: 1.8,
+              whiteSpace: "pre-line"
+            }}
+          >
+            {about.bioParagraph3}
+          </p>
+        )}
 
         {/* --- Education Section --- */}
         <motion.div
