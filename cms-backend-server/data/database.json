@@ -1,0 +1,258 @@
+{
+  "credentials": {
+    "username": "piyush",
+    "password": "piyush@8459"
+  },
+  "about": {
+    "fullName": "Piyush Funde",
+    "title": "Full Stack Developer & AI Engineer",
+    "bio": "Passionate software engineer crafting resilient distributed systems, scalable web applications, and intelligent AI-assisted workflows.",
+    "location": "Pune, Maharashtra, India",
+    "email": "fundepiyush18@gmail.com",
+    "githubUrl": "https://github.com/piyushFunde",
+    "linkedinUrl": "https://www.linkedin.com/in/piyush-funde-22411725a/",
+    "twitterUrl": "https://twitter.com",
+    "resumeUrl": "http://localhost:8080/uploads/Piyush_Funde_Resume_1791484199401.pdf",
+    "avatarUrl": "/photo.png",
+    "interests": "Distributed Systems, Spring Boot, React, Artificial Intelligence, Cloud Systems",
+    "summary": "B.Tech Computer Science student at MIT ADT University, Pune, with a strong foundation in Data Structures, Algorithms, and Object-Oriented Programming. Skilled in Python, Java, Spring Boot, and AI/ML frameworks.",
+    "degree": "B.Tech — Computer Science Engineering",
+    "university": "MIT ADT University, Pune",
+    "duration": "2022–2026",
+    "gpa": "7.37",
+    "juniorCollege": "S.H. Junior College (Maharashtra Board, 2021)",
+    "twelfthScore": "75%",
+    "school": "P.P.S Purti Public School (CBSE Board, 2019)"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Bedside Bot — AI Hospital Assistant",
+      "description": "An AI-powered autonomous bedside robotic assistant designed for real-time patient monitoring, vitals detection, and nurse station integration.",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "Mediapipe",
+        "Flask",
+        "AI/ML"
+      ],
+      "featured": true,
+      "githubUrl": "https://github.com/piyushFunde/Bedside-Bot",
+      "liveUrl": "#",
+      "imageUrl": "/BedsideBot.png"
+    },
+    {
+      "id": 2,
+      "title": "EVA CRM — Debt Collection System",
+      "description": "Enterprise debt collection management platform with customer assignment, payment tracking, WebSocket real-time sync, and Excel bulk processing.",
+      "tags": [
+        "React",
+        "Spring Boot",
+        "MySQL",
+        "JWT",
+        "WebSockets"
+      ],
+      "featured": true,
+      "githubUrl": "https://github.com/piyushFunde",
+      "liveUrl": "#",
+      "imageUrl": "/portfolio.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Employee Management System",
+      "description": "Full-featured enterprise human resource system with department hierarchies, payroll calculation, attendance tracking, and reporting.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "REST API"
+      ],
+      "featured": false,
+      "githubUrl": "https://github.com/piyushFunde",
+      "liveUrl": "#",
+      "imageUrl": "/portfolio.jpg"
+    },
+    {
+      "id": 4,
+      "title": "EasyRX — Patients DigiLocker",
+      "description": "Decentralized prescription management and patient records vault with biometric access and instant pharmacy dispensing integration.",
+      "tags": [
+        "Java",
+        "Firebase",
+        "Android",
+        "Cloud Storage"
+      ],
+      "featured": false,
+      "githubUrl": "https://github.com/piyushFunde",
+      "liveUrl": "#",
+      "imageUrl": "/portfolio.jpg"
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Java",
+      "category": "Backend",
+      "proficiency": 90,
+      "icon": "☕"
+    },
+    {
+      "id": 2,
+      "name": "Spring Boot",
+      "category": "Backend",
+      "proficiency": 88,
+      "icon": "🍃"
+    },
+    {
+      "id": 3,
+      "name": "React.js",
+      "category": "Frontend",
+      "proficiency": 85,
+      "icon": "⚛️"
+    },
+    {
+      "id": 4,
+      "name": "Python",
+      "category": "Languages",
+      "proficiency": 82,
+      "icon": "🐍"
+    },
+    {
+      "id": 5,
+      "name": "MySQL",
+      "category": "Database",
+      "proficiency": 85,
+      "icon": "🐬"
+    },
+    {
+      "id": 6,
+      "name": "REST APIs",
+      "category": "Architecture",
+      "proficiency": 92,
+      "icon": "🔌"
+    },
+    {
+      "id": 7,
+      "name": "C / C++",
+      "category": "Languages",
+      "proficiency": 80,
+      "icon": "⚡"
+    },
+    {
+      "id": 8,
+      "name": "JavaScript",
+      "category": "Frontend",
+      "proficiency": 85,
+      "icon": "🟨"
+    },
+    {
+      "id": 9,
+      "name": "Git & GitHub",
+      "category": "Tools",
+      "proficiency": 90,
+      "icon": "🐙"
+    },
+    {
+      "id": 10,
+      "name": "OpenCV",
+      "category": "AI & Vision",
+      "proficiency": 75,
+      "icon": "👁️"
+    },
+    {
+      "id": 11,
+      "name": "WebSockets",
+      "category": "Backend",
+      "proficiency": 80,
+      "icon": "⚡"
+    },
+    {
+      "id": 12,
+      "name": "MongoDB",
+      "category": "Database",
+      "proficiency": 78,
+      "icon": "🍃"
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "company": "Labmentix",
+      "role": "Full Stack Developer Intern",
+      "period": "June 2026 — Present",
+      "location": "Pune, India",
+      "description": "• Working on full-stack web applications using Java, Spring Boot, React, REST APIs, and MySQL.\n• Developing backend APIs, integrating databases, and implementing core application features.\n• Working with Git, debugging, testing, and optimizing application functionality and responsiveness.",
+      "technologies": "Java, Spring Boot, React, REST APIs, MySQL, Git, Postman",
+      "current": true
+    },
+    {
+      "id": 2,
+      "company": "EVA Groups",
+      "role": "Freelance Full Stack Developer",
+      "period": "March 2026 — June 2026",
+      "location": "Pune, India (Remote)",
+      "description": "• Built EVA CRM, a production collection management system actively used by real-world users.\n• Developed the application end-to-end using React, Spring Boot, MySQL, JWT, and REST APIs.\n• Implemented customer assignment, payment/collection tracking, receipt uploads, Excel data import, and role-based access control.\n• Added offline support and real-time synchronization using WebSockets.\n• Handled full-cycle development, deployment, and client requirements independently.",
+      "technologies": "React, Spring Boot, MySQL, JWT, REST APIs, WebSockets, Excel Processing, Full Lifecycle",
+      "current": false
+    }
+  ],
+  "certificates": [
+    {
+      "id": 1,
+      "title": "Full Stack Java & Spring Boot Specialization",
+      "issuer": "Oracle / Coursera",
+      "issueDate": "2024",
+      "credentialUrl": "https://coursera.org",
+      "description": "Mastery in building resilient enterprise services, Spring Data JPA, and RESTful API ecosystems."
+    },
+    {
+      "id": 2,
+      "title": "Deep Learning & Computer Vision with OpenCV",
+      "issuer": "DeepLearning.AI",
+      "issueDate": "2024",
+      "credentialUrl": "https://deeplearning.ai",
+      "description": "Practical training on real-time neural network inference, Mediapipe hand/pose estimation, and edge vision."
+    },
+    {
+      "id": 3,
+      "title": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "issueDate": "2023",
+      "credentialUrl": "https://aws.amazon.com",
+      "description": "Demonstrated cloud architecture, VPC configurations, IAM security, and serverless compute primitives."
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Architecting High-Throughput REST APIs with Spring Boot 3 & Virtual Threads",
+      "excerpt": "A deep dive into building scalable, non-blocking backends utilizing Project Loom, connection pooling optimizations, and clean layered architecture.",
+      "content": "In modern distributed computing, scalability and thread utilization dictate operational efficiency...",
+      "publishedAt": "2026-09-28",
+      "readTime": "6 min read",
+      "tags": [
+        "Spring Boot",
+        "Java 21",
+        "Architecture",
+        "Performance"
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "title": "Smart India Hackathon",
+      "category": "Hackathons",
+      "imageUrl": "/BedsideBot.png",
+      "caption": "Presenting AI Bedside Assistant"
+    },
+    {
+      "id": 2,
+      "title": "Tech Symposium Keynote",
+      "category": "Events",
+      "imageUrl": "/portfolio.jpg",
+      "caption": "Technical presentation on Spring Boot"
+    }
+  ],
+  "messages": []
+}

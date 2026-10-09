@@ -1,8 +1,7 @@
 node_modules/
 dist/
+target/
 .env
+.env.local
 .vite/
-
-
-
-
+*.log
