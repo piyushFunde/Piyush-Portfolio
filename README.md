@@ -1,19 +1,12 @@
-# 🚀 Piyush Funde — Full-Stack Portfolio & Custom CMS
+#  Piyush Funde — Full-Stack Portfolio & Custom CMS
 
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg?logo=react)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.4-purple.svg?logo=vite)](https://vitejs.dev/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-brightgreen.svg?logo=springboot)](https://spring.io/projects/spring-boot)
-[![Java](https://img.shields.io/badge/Java-17%2F21-orange.svg?logo=openjdk)](https://www.oracle.com/java/)
-[![JWT](https://img.shields.io/badge/Auth-JWT%20Stateless-red.svg)](https://jwt.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A modern, high-performance personal portfolio connected to a **custom-built Java Spring Boot 3.x Headless CMS** and an **interactive Admin Control Dashboard**.
-
-🌐 **Live Website:** [https://piyushfunde-portfolio.vercel.app/](https://piyushfunde-portfolio.vercel.app/)
+**Live Website:** [https://piyushfunde-portfolio.vercel.app/](https://piyushfunde-portfolio.vercel.app/)
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 This project is engineered with a **fully decoupled full-stack architecture**:
 
@@ -46,27 +39,27 @@ graph TD
 
 ---
 
-## ✨ Key Features & Upgrades
+##  Key Features & Upgrades
 
-### 🎨 1. Dynamic Portfolio Frontend
+### 1. Dynamic Portfolio Frontend
 - **Decoupled API Integration**: Dynamically loads projects, skills, timeline, certifications, and blogs via `src/api.js` with zero-downtime offline fallback.
 - **Modern Dark Aesthetics**: 28px dot-grid texture, ambient drifting mesh gradient blobs, and glassmorphic cards with subtle inset highlights.
 - **Smooth Micro-Interactions**: Framer Motion entrance animations, floating social badges, and interactive project showcases.
 - **Dual-Channel Contact System**: Contact form submissions are dispatched via **EmailJS** and persistently logged into the CMS database.
 
-### ☕ 2. Custom Spring Boot 3.x CMS Backend
+### 2. Custom Spring Boot 3.x CMS Backend
 - **100% Custom-Coded Headless CMS**: Built from scratch without third-party CMS platforms (Strapi, Sanity, Contentful), providing full schema control and native data ownership.
 - **Spring Security & Rate Limiting**: Stateless token authentication (`HMAC-SHA256`) with brute-force rate limiting and 15-minute lockout protection on auth endpoints.
 - **Relational Persistence**: PostgreSQL for production deployments (with connection pooling) and H2 in-memory mode for isolated unit testing.
 - **Media Upload Service**: Native multipart file storage with Cloudinary/S3 integration support to prevent ephemeral disk loss.
 
-### ⚡ 3. CMS Admin Control Center
+###  3. CMS Admin Control Center
 - **Dedicated Dashboard**: Real-time content metrics, dynamic `/health` engine checks, and rapid publishing shortcuts.
 - **Practical Admin Utilities**: Live inquiries inbox with read/unread flags, pending drafts manager, and visual CRUD tables.
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Tier | Technologies |
 | :--- | :--- |
@@ -79,7 +72,7 @@ graph TD
 
 ---
 
-## 📡 REST API Specifications
+##  REST API Specifications
 
 ### Public Endpoints
 - `GET /api/v1/public/about` — Fetch bio, profile details, and social links
@@ -100,7 +93,7 @@ graph TD
 
 ---
 
-## 🚀 Local Development Setup
+##  Local Development Setup
 
 ### 1. Run the Portfolio Frontend
 ```bash
@@ -129,16 +122,6 @@ Backend API runs at: `http://localhost:8080/api/v1`
 H2 Database Console: `http://localhost:8080/h2-console`
 
 ---
-
-## 📬 Contact & Connect
-
-- **Portfolio:** [piyushfunde-portfolio.vercel.app](https://piyushfunde-portfolio.vercel.app/)
-- **Email:** [fundepiyush18@gmail.com](mailto:fundepiyush18@gmail.com)
-- **LinkedIn:** [linkedin.com/in/piyush-funde-22411725a](https://www.linkedin.com/in/piyush-funde-22411725a/)
-- **GitHub:** [github.com/piyushFunde](https://github.com/piyushFunde)
-
----
-
 ## 📄 License
 
 This project is licensed under the **MIT License** — feel free to fork, customize, and build upon it!
