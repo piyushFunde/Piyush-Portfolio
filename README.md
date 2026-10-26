@@ -8,7 +8,6 @@ A modern, high-performance personal portfolio connected to a **custom-built Java
 
 ## System Architecture
 
-This project is engineered with a **fully decoupled full-stack architecture**:
 
 ```mermaid
 flowchart TD
@@ -195,7 +194,7 @@ Backend API runs at: `http://localhost:8080/api/v1`
 H2 Database Console: `http://localhost:8080/h2-console`
 
 ---
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** — feel free to fork, customize, and build upon it!
 
