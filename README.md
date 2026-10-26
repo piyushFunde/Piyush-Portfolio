@@ -11,30 +11,103 @@ A modern, high-performance personal portfolio connected to a **custom-built Java
 This project is engineered with a **fully decoupled full-stack architecture**:
 
 ```mermaid
-graph TD
-    subgraph Client Layer
-        PF["Portfolio Frontend<br/>React + Vite + Framer Motion<br/>Port 5173"]
-        AP["Admin CMS Dashboard<br/>React + Glassmorphic UI<br/>Port 5174"]
-    end
+flowchart TD
 
-    subgraph Backend & CMS Engine
-        API["Spring Boot 3.x REST API<br/>Port 8080"]
-        SEC["Spring Security + JWT Bearer Auth"]
-        JPA["Spring Data JPA Layer"]
-        FS["Multipart Media Storage Engine"]
-    end
+subgraph group_portfolio["Portfolio frontend"]
+  node_portfolio_app["Portfolio routes<br/>[App.jsx]"]
+  node_portfolio_api["Portfolio API client<br/>[api.js]"]
+  node_portfolio_content["Portfolio pages"]
+  node_portfolio_contact["Contact page<br/>[Contact.jsx]"]
+end
 
-    subgraph Persistence Layer
-        DB[("PostgreSQL / H2 Database")]
-    end
+subgraph group_admin["Admin dashboard"]
+  node_admin_app["Admin routes<br/>[App.jsx]"]
+  node_admin_api["Admin API client<br/>[api.js]"]
+  node_admin_content["Content editors"]
+  node_admin_resume["Resume manager<br/>[ResumeManager.jsx]"]
+  node_admin_inbox["Messages inbox"]
+end
 
-    PF -->|"GET /api/v1/public (Dynamic Content)"| API
-    PF -->|"POST /api/v1/public/contact"| API
-    AP -->|"JWT Bearer Auth / CRUD Operations"| SEC
-    SEC --> API
-    API --> JPA
-    JPA --> DB
-    API --> FS
+subgraph group_backend["CMS backend"]
+  node_public_controller["Public endpoints"]
+  node_admin_controller["Admin endpoints"]
+  node_auth_controller["Authentication endpoint"]
+  node_media_controller["Media endpoint"]
+  node_content_service["Content service"]
+  node_file_storage["File storage"]
+  node_security["JWT security"]
+end
+
+subgraph group_data["Persistence and integrations"]
+  node_models["Content models"]
+  node_repositories["JPA repositories"]
+  node_database[("Relational database")]
+  node_email_service["EmailJS"]
+  node_media_store[("Uploaded files")]
+end
+
+node_visitor(("Visitor"))
+node_admin_user(("Administrator"))
+
+node_visitor -->|"browses"| node_portfolio_app
+node_portfolio_app -->|"routes to"| node_portfolio_content
+node_portfolio_content -.->|"loads content"| node_portfolio_api
+node_visitor -.->|"submits inquiry"| node_portfolio_contact
+node_portfolio_contact -.->|"posts inquiry"| node_portfolio_api
+node_portfolio_contact -.->|"dispatches email"| node_email_service
+node_portfolio_api -.->|"requests public API"| node_public_controller
+node_admin_user -->|"manages content"| node_admin_app
+node_admin_app -->|"routes to"| node_admin_content
+node_admin_app -->|"routes to"| node_admin_resume
+node_admin_app -->|"routes to"| node_admin_inbox
+node_admin_app -->|"refreshes messages"| node_admin_api
+node_admin_content -.->|"manages content"| node_admin_api
+node_admin_resume -.->|"uploads and saves"| node_admin_api
+node_admin_inbox -.->|"manages inquiries"| node_admin_api
+node_admin_api -.->|"authenticates"| node_auth_controller
+node_admin_api -.->|"calls protected API"| node_admin_controller
+node_admin_api -.->|"uploads media"| node_media_controller
+node_auth_controller -.->|"uses JWT security"| node_security
+node_admin_controller -->|"delegates content work"| node_content_service
+node_public_controller -->|"delegates content work"| node_content_service
+node_content_service -->|"reads and writes"| node_repositories
+node_media_controller -.->|"stores uploads"| node_file_storage
+node_file_storage -->|"saves media metadata"| node_repositories
+node_repositories -.->|"persists records"| node_database
+node_file_storage -->|"writes files"| node_media_store
+node_content_service -->|"handles content records"| node_models
+
+click node_portfolio_app "https://github.com/piyushfunde/piyush-portfolio/blob/main/src/App.jsx"
+click node_portfolio_api "https://github.com/piyushfunde/piyush-portfolio/blob/main/src/api.js"
+click node_portfolio_content "https://github.com/piyushfunde/piyush-portfolio/tree/main/src/pages"
+click node_portfolio_contact "https://github.com/piyushfunde/piyush-portfolio/blob/main/src/pages/Contact.jsx"
+click node_admin_app "https://github.com/piyushfunde/piyush-portfolio/blob/main/admin-cms-frontend/src/App.jsx"
+click node_admin_api "https://github.com/piyushfunde/piyush-portfolio/blob/main/admin-cms-frontend/src/api.js"
+click node_admin_content "https://github.com/piyushfunde/piyush-portfolio/tree/main/admin-cms-frontend/src/pages"
+click node_admin_resume "https://github.com/piyushfunde/piyush-portfolio/blob/main/admin-cms-frontend/src/pages/ResumeManager.jsx"
+click node_admin_inbox "https://github.com/piyushfunde/piyush-portfolio/blob/main/admin-cms-frontend/src/pages/MessagesManager.jsx"
+click node_public_controller "https://github.com/piyushfunde/piyush-portfolio/blob/main/backend-cms/src/main/java/com/piyush/cms/controller/PublicContentController.java"
+click node_admin_controller "https://github.com/piyushfunde/piyush-portfolio/blob/main/backend-cms/src/main/java/com/piyush/cms/controller/AdminCMSController.java"
+click node_auth_controller "https://github.com/piyushfunde/piyush-portfolio/blob/main/backend-cms/src/main/java/com/piyush/cms/controller/AuthController.java"
+click node_media_controller "https://github.com/piyushfunde/piyush-portfolio/blob/main/backend-cms/src/main/java/com/piyush/cms/controller/MediaController.java"
+click node_content_service "https://github.com/piyushfunde/piyush-portfolio/blob/main/backend-cms/src/main/java/com/piyush/cms/service/ContentService.java"
+click node_file_storage "https://github.com/piyushfunde/piyush-portfolio/blob/main/backend-cms/src/main/java/com/piyush/cms/service/FileStorageService.java"
+click node_security "https://github.com/piyushfunde/piyush-portfolio/tree/main/backend-cms/src/main/java/com/piyush/cms/security"
+click node_models "https://github.com/piyushfunde/piyush-portfolio/tree/main/backend-cms/src/main/java/com/piyush/cms/model"
+click node_repositories "https://github.com/piyushfunde/piyush-portfolio/tree/main/backend-cms/src/main/java/com/piyush/cms/repository"
+
+classDef toneNeutral fill:#f8fafc,stroke:#334155,stroke-width:1.5px,color:#0f172a
+classDef toneBlue fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#172554
+classDef toneAmber fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f
+classDef toneMint fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
+classDef toneRose fill:#ffe4e6,stroke:#e11d48,stroke-width:1.5px,color:#881337
+classDef toneIndigo fill:#e0e7ff,stroke:#4f46e5,stroke-width:1.5px,color:#312e81
+classDef toneTeal fill:#ccfbf1,stroke:#0f766e,stroke-width:1.5px,color:#134e4a
+class node_portfolio_app,node_portfolio_api,node_portfolio_content,node_portfolio_contact toneBlue
+class node_admin_app,node_admin_api,node_admin_content,node_admin_resume,node_admin_inbox toneAmber
+class node_public_controller,node_admin_controller,node_auth_controller,node_media_controller,node_content_service,node_file_storage,node_security toneMint
+class node_models,node_repositories,node_database,node_email_service,node_media_store toneRose
+class node_visitor,node_admin_user toneIndigo
 ```
 
 ---
